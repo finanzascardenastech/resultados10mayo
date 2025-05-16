@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteo - Espera</title>
+    <title>Mensaje Especial</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f9ff, #e6f2ff);
+            background: linear-gradient(135deg, #fff5f9, #ffe6f2);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,11 +23,11 @@
             background: white;
             padding: 30px 40px;
             border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(105, 145, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.2);
             max-width: 80%;
             position: relative;
             overflow: hidden;
-            border: 2px solid #6991ff;
+            border: 2px solid #ffb6c1;
             z-index: 10;
         }
         
@@ -38,7 +38,7 @@
             left: -5px;
             right: -5px;
             bottom: -5px;
-            border: 2px dashed #4169ff;
+            border: 2px dashed #ff69b4;
             border-radius: 25px;
             opacity: 0.3;
             pointer-events: none;
@@ -51,7 +51,7 @@
         }
         
         h1 {
-            color: #3355d2;
+            color: #d23369;
             margin: 10px 0;
             font-size: 2.2rem;
             font-weight: 700;
@@ -66,12 +66,12 @@
         }
         
         .highlight {
-            color: #1444ff;
+            color: #ff1493;
             font-weight: 700;
         }
         
-        .clock {
-            color: #1444ff;
+        .heart {
+            color: #ff1493;
             font-size: 2.5rem;
             animation: pulse 1.5s infinite, float 3s ease-in-out infinite;
             display: inline-block;
@@ -88,7 +88,7 @@
             50% { transform: translateY(-10px); }
         }
         
-        .floating-items {
+        .floating-hearts {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -98,7 +98,7 @@
             z-index: -1;
         }
         
-        .floating-items span {
+        .floating-hearts span {
             position: absolute;
             font-size: 1.5rem;
             opacity: 0.6;
@@ -116,90 +116,43 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            background-color: #1444ff;
+            background-color: #ff1493;
             opacity: 0;
             z-index: 1;
             border-radius: 50%;
         }
-        
-        .pulse {
-            animation: pulse-ring 1.5s ease-out infinite;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120%;
-            height: 120%;
-            border-radius: 30px;
-            border: 3px solid #4169ff;
-            opacity: 0;
-            z-index: -1;
-        }
-        
-        @keyframes pulse-ring {
-            0% {
-                transform: translate(-50%, -50%) scale(0.7);
-                opacity: 0.3;
-            }
-            80%, 100% {
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 0;
-            }
-        }
-        
-        .dots {
-            display: inline-block;
-            position: relative;
-            width: 30px;
-            text-align: left;
-        }
-        
-        .dots::after {
-            content: '...';
-            position: absolute;
-            left: 0;
-            animation: loading 1.5s infinite;
-            width: 30px;
-        }
-        
-        @keyframes loading {
-            0% { content: '.'; }
-            33% { content: '..'; }
-            66% { content: '...'; }
-        }
     </style>
 </head>
 <body>
-    <div class="floating-items" id="items-container"></div>
+    <div class="floating-hearts" id="hearts-container"></div>
     
     <div class="message-container">
-        <div class="pulse"></div>
         <img src="logo.png" alt="Logo" class="logo">
-        <h1>EL SORTEO COMIENZA PRONTO<span class="dots"></span></h1>
-        <p>ESCANEA TU <span class="highlight">CÓDIGO</span></p>
-        <p>CUANDO TE <span class="highlight">INDIQUEMOS</span> <span class="clock">⏱️</span></p>
+        <h1>QR NO GANADOR</h1>
+        <p>GRACIAS POR <span class="highlight">PARTICIPAR</span></p>
+        <p>FELIZ DÍA DEL MAESTRO <span class="highlight">MAESTRO</span> <span class="heart">♥</span></p>
     </div>
 
     <script>
-        // Create floating items in the background
-        function createFloatingItems() {
-            const container = document.getElementById('items-container');
-            const items = ['🎟️', '🎫', '🎁', '🎯', '🎪', '✨', '🎊', '🎉', '🎖️', '🏆'];
+        // Create floating hearts in the background
+        function createFloatingHearts() {
+            const container = document.getElementById('hearts-container');
+            const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
             
             for (let i = 0; i < 15; i++) {
-                const item = document.createElement('span');
-                item.innerHTML = items[Math.floor(Math.random() * items.length)];
-                item.style.left = `${Math.random() * 100}%`;
-                item.style.fontSize = `${1 + Math.random() * 2}rem`;
-                item.style.animationDuration = `${5 + Math.random() * 10}s`;
-                item.style.animationDelay = `${Math.random() * 5}s`;
-                container.appendChild(item);
+                const heart = document.createElement('span');
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.fontSize = `${1 + Math.random() * 2}rem`;
+                heart.style.animationDuration = `${5 + Math.random() * 10}s`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(heart);
             }
-        }
+        }  
         
         // Create confetti effect
         function createConfetti() {
-            const colors = ['#1444ff', '#4169ff', '#6991ff', '#3355d2', '#2a4cda'];
+            const colors = ['#ff1493', '#ff69b4', '#ffb6c1', '#d23369', '#ffc0cb'];
             
             for (let i = 0; i < 80; i++) {
                 const confetti = document.createElement('div');
@@ -225,7 +178,7 @@
         
         // Initialize effects
         window.onload = function() {
-            createFloatingItems();
+            createFloatingHearts();
             createConfetti();
             
             // Recreate confetti every 4 seconds
@@ -233,4 +186,4 @@
         };
     </script>
 </body>
-</html>
+</html>  
